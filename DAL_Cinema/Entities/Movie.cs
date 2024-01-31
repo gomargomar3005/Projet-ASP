@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL_Cinema.Entities
 {
-    internal class Movie
+    public class Movie
     {
         public int Id_Movie { get; set; }
         public string Title { get; set; }

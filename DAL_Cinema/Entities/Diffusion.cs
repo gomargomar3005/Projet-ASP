@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL_Cinema.Entities
 {
-    internal class Diffusion
+    public class Diffusion
     {
         public int Id_Diffusion { get; set; }
         public DateTime DiffusionDate { get; set; }
