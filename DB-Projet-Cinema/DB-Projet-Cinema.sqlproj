@@ -56,9 +56,9 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Scripts" />
     <Folder Include="StoredProcedures" />
     <Folder Include="Tables" />
-    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="StoredProcedures\SP_CinemaPlace_Delete.sql" />
@@ -66,6 +66,17 @@
     <Build Include="StoredProcedures\SP_CinemaPlace_GetById.sql" />
     <Build Include="StoredProcedures\SP_CinemaPlace_Insert.sql" />
     <Build Include="StoredProcedures\SP_CinemaPlace_Update.sql" />
+    <Build Include="StoredProcedures\SP_CinemaRoom_Delete.sql" />
+    <Build Include="StoredProcedures\SP_CinemaRoom_GetAll.sql" />
+    <Build Include="StoredProcedures\SP_CinemaRoom_GetById.sql" />
+    <Build Include="StoredProcedures\SP_CinemaRoom_Insert.sql" />
+    <Build Include="StoredProcedures\SP_CinemaRoom_Update.sql" />
+    <Build Include="StoredProcedures\SP_Diffusion_Delete.sql" />
+    <Build Include="StoredProcedures\SP_Diffusion_GetAll.sql" />
+    <Build Include="StoredProcedures\SP_Diffusion_GetByCinemaPlace.sql" />
+    <Build Include="StoredProcedures\SP_Diffusion_GetById.sql" />
+    <Build Include="StoredProcedures\SP_Diffusion_Insert.sql" />
+    <Build Include="StoredProcedures\SP_Diffusion_Update.sql" />
     <Build Include="StoredProcedures\SP_Movie_Delete.sql" />
     <Build Include="StoredProcedures\SP_Movie_GetAll.sql" />
     <Build Include="StoredProcedures\SP_Movie_GetById.sql" />
@@ -76,26 +87,15 @@
     <Build Include="Tables\Diffusion.sql" />
     <Build Include="Tables\Language.sql" />
     <Build Include="Tables\Movie.sql" />
-    <Build Include="StoredProcedures\SP_CinemaRoom_Delete.sql" />
-    <Build Include="StoredProcedures\SP_CinemaRoom_GetAll.sql" />
-    <Build Include="StoredProcedures\SP_CinemaRoom_GetById.sql" />
-    <Build Include="StoredProcedures\SP_CinemaRoom_Insert.sql" />
-    <Build Include="StoredProcedures\SP_CinemaRoom_Update.sql" />
-    <Build Include="StoredProcedures\SP_Diffusion_Delete.sql" />
-    <Build Include="StoredProcedures\SP_Diffusion_GetAll.sql" />
-    <Build Include="StoredProcedures\SP_Diffusion_GetById.sql" />
-    <Build Include="StoredProcedures\SP_Diffusion_Insert.sql" />
-    <Build Include="StoredProcedures\SP_Diffusion_Update.sql" />
-    <Build Include="StoredProcedures\SP_Diffusion_GetByCinemaPlace.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DB-Projet-Cinema.sqlproj.user" />
     <None Include="DB-Projet-Cinema.publish.xml" />
+    <None Include="DB-Projet-Cinema.sqlproj.user" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB-Projet-Cinema.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Scripts\Main.Script.PostDeployment.sql" />
+    <None Include="Scripts\Main.Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
