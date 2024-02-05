@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DAL_Cinema\DAL_Cinema.csproj" />
+    <ProjectReference Include="..\Shared-Cinema\Shared-Cinema.csproj" />
   </ItemGroup>
 
 </Project>

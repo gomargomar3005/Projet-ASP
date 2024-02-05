@@ -13,7 +13,9 @@ namespace ASP_Cinema
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             //Ajout des services par injection de dépendance :
+
                     builder.Services.AddScoped<ICinemaPlaceRepository<BLL.Entities.CinemaPlace>, BLL.Services.CinemaPlaceService>();
+
             builder.Services.AddScoped<ICinemaPlaceRepository<DAL.Entities.CinemaPlace>, DAL.Services.CinemaPlaceService>();
 
             var app = builder.Build();

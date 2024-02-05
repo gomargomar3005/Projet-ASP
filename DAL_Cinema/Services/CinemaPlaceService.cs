@@ -59,7 +59,7 @@ namespace DAL_Cinema.Services
                 using SqlCommand command = connection.CreateCommand();
                 command.CommandText = "SP_CinemaPlace_GetById";
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("id", id);
+                command.Parameters.AddWithValue("Id_CinemaPlace", id);
                 connection.Open();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -78,7 +78,6 @@ namespace DAL_Cinema.Services
                 {
                     command.CommandText = "SP_CinemaPlace_Insert";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("id_CinemaPlace", data.Id_CinemaPlace);
                     command.Parameters.AddWithValue("name", data.Name);
                     command.Parameters.AddWithValue("city", data.City);
                     command.Parameters.AddWithValue("street", data.Street);
@@ -98,7 +97,7 @@ namespace DAL_Cinema.Services
                     command.CommandText = "SP_CinemaPlace_Update";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.AddWithValue("id_CinemaPlace", data.Id_CinemaPlace);
+                    command.Parameters.AddWithValue("Id_CinemaPlace", data.Id_CinemaPlace);
                     command.Parameters.AddWithValue("name", data.Name);
                     command.Parameters.AddWithValue("city", data.City);
                     command.Parameters.AddWithValue("street", data.Street);
