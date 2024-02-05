@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mappers\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\DAL_Cinema\DAL_Cinema.csproj" />
   </ItemGroup>
 
 </Project>

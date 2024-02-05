@@ -1,3 +1,7 @@
+using Shared_Cinema.Repositories;
+using BLL = BLL_Cinema;
+using DAL = DAL_Cinema;
+
 namespace ASP_Cinema
 {
     public class Program
@@ -8,6 +12,9 @@ namespace ASP_Cinema
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            //Ajout des services par injection de dépendance :
+                    builder.Services.AddScoped<ICinemaPlaceRepository<BLL.Entities.CinemaPlace>, BLL.Services.CinemaPlaceService>();
+            builder.Services.AddScoped<ICinemaPlaceRepository<DAL.Entities.CinemaPlace>, DAL.Services.CinemaPlaceService>();
 
             var app = builder.Build();
 
