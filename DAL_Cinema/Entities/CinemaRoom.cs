@@ -16,5 +16,15 @@ namespace DAL_Cinema.Entities
         public bool Can3D { get; set; }
         public bool Can4DX { get; set; }
         public int Id_CinemaPlace { get; set; }
+
+        internal CinemaRoom ToBLL()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object ToDAL()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

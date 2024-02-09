@@ -10,11 +10,10 @@ using BLL_Cinema.Mappers;
 
 namespace BLL_Cinema.Services
 {
-    public class CinemaRoomService : ICinemaRoomRepository<CinemaRoom>
+    public class DiffusionService : IDiffusionRepository<Diffusion>
     {
-        private readonly ICinemaRoomRepository<DAL.CinemaRoom> _repository;
-
-        public CinemaRoomService(ICinemaRoomRepository<DAL.CinemaRoom> repository)
+        private readonly IDiffusionRepository<DAL.Diffusion> _repository;
+        public DiffusionService(IDiffusionRepository<DAL.Diffusion> repository)
         {
             _repository = repository;
         }
@@ -24,22 +23,22 @@ namespace BLL_Cinema.Services
             _repository.Delete(id);
         }
 
-        public IEnumerable<CinemaRoom> Get()
+        public IEnumerable<Diffusion> Get()
         {
             return _repository.Get().Select(d => d.ToBLL());
         }
 
-        public CinemaRoom Get(int id)
+        public Diffusion Get(int id)
         {
             return _repository.Get(id).ToBLL();
         }
 
-        public int Insert(CinemaRoom data)
+        public int Insert(Diffusion data)
         {
             return _repository.Insert(data.ToDAL());
         }
 
-        public void Update(CinemaRoom data)
+        public void Update(Diffusion data)
         {
             _repository.Update(data.ToDAL());
         }

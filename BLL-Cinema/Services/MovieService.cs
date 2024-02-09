@@ -1,6 +1,6 @@
 ﻿using BLL_Cinema.Entities;
-using DAL = DAL_Cinema.Entities;
 using Shared_Cinema.Repositories;
+using DAL = DAL_Cinema.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,10 @@ using BLL_Cinema.Mappers;
 
 namespace BLL_Cinema.Services
 {
-    public class CinemaRoomService : ICinemaRoomRepository<CinemaRoom>
+    public class MovieService : IMovieRepository<Movie>
     {
-        private readonly ICinemaRoomRepository<DAL.CinemaRoom> _repository;
-
-        public CinemaRoomService(ICinemaRoomRepository<DAL.CinemaRoom> repository)
+        private readonly IMovieRepository<DAL.Movie> _repository;
+        public MovieService(IMovieRepository<DAL.Movie> repository)
         {
             _repository = repository;
         }
@@ -24,22 +23,22 @@ namespace BLL_Cinema.Services
             _repository.Delete(id);
         }
 
-        public IEnumerable<CinemaRoom> Get()
+        public IEnumerable<Movie> Get()
         {
             return _repository.Get().Select(d => d.ToBLL());
         }
 
-        public CinemaRoom Get(int id)
+        public Movie Get(int id)
         {
             return _repository.Get(id).ToBLL();
         }
 
-        public int Insert(CinemaRoom data)
+        public int Insert(Movie data)
         {
             return _repository.Insert(data.ToDAL());
         }
 
-        public void Update(CinemaRoom data)
+        public void Update(Movie data)
         {
             _repository.Update(data.ToDAL());
         }

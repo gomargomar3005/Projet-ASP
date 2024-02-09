@@ -92,5 +92,36 @@ namespace ASP_Cinema.Handlers
             };
         }
         #endregion
+
+        #region Diffusion
+
+        public static DiffusionDetailsViewModel ToDetails(this Diffusion entity)
+        {
+            if (entity is null) return null;
+            return new DiffusionDetailsViewModel()
+            {
+                Id_Diffusion = entity.Id_Diffusion,
+                DiffusionDate = entity.DiffusionDate,
+                DiffusionTime = entity.DiffusionTime,
+                AudioLang = entity.AudioLang,
+                SubTitleLang = entity.SubTitleLang,
+                Id_CinemaRoom = entity.Id_CinemaRoom,
+                Id_Movie = entity.Id_Movie
+            };
+        }
+
+        public static Diffusion ToBLL(this DiffusionCreateForm entity)
+        {
+            if (entity is null) return null;
+            return new Diffusion(
+                0,
+                entity.DiffusionDate,
+                entity.DiffusionTime,
+                entity.AudioLang,
+                0,
+                0);
+        }
+
+        #endregion
     }
 }

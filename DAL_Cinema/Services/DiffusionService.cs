@@ -12,7 +12,7 @@ using DAL_Cinema.Mappers;
 
 namespace DAL_Cinema.Services
 {
-    internal class DiffusionService : BaseService,
+    public class DiffusionService : BaseService,
         IDiffusionRepository<Diffusion>
     {
         public DiffusionService(IConfiguration configuration, string dbname) : base(configuration, dbname)

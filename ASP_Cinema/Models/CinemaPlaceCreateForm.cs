@@ -24,10 +24,5 @@ namespace ASP_Cinema.Models
         [DisplayName("Numéro de rue")]
         [Required(ErrorMessage = "Vous devez entrer un numéro de rue.")]
         public string Number { get; set; }
-
-        internal CinemaPlace ToBLL()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

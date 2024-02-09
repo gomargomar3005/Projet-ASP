@@ -9,6 +9,5 @@ namespace Shared_Cinema.Repositories
     public interface ICinemaRoomRepository<TEntity> :
         ICRUDRepository<TEntity, int> where TEntity : class
     {
-        int Insert(object value);
     }
 }

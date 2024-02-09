@@ -12,7 +12,7 @@ using DAL_Cinema.Mappers;
 
 namespace DAL_Cinema.Services
 {
-    internal class MovieService : BaseService,
+    public class MovieService : BaseService,
         IMovieRepository<Movie>
     {
         public MovieService(IConfiguration configuration, string dbname) : base(configuration, dbname)

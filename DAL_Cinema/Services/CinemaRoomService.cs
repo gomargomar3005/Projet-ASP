@@ -12,7 +12,7 @@ using DAL_Cinema.Mappers;
 
 namespace DAL_Cinema.Services
 {
-    internal class CinemaRoomService : BaseService,
+    public class CinemaRoomService : BaseService,
         ICinemaRoomRepository<CinemaRoom>
     {
         public CinemaRoomService(IConfiguration configuration, string dbname) : base(configuration, dbname)
