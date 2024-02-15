@@ -1,20 +1,34 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ASP_Cinema.Handlers;
+using ASP_Cinema.Models;
+using BLL_Cinema.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared_Cinema.Repositories;
 
 namespace ASP_Cinema.Controllers
 {
     public class DiffusionController : Controller
     {
+        private readonly IDiffusionRepository<Diffusion> _diffusionRepository;
+
+        public DiffusionController(IDiffusionRepository<Diffusion> diffusionRepository)
+        {
+            _diffusionRepository = diffusionRepository;
+        }
+
+
         // GET: DiffusionController
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<DiffusionListViewModel> model = _diffusionRepository.Get().Select(d => d.ToListItem()); ;
+            return View(model);
         }
 
         // GET: DiffusionController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            DiffusionDetailsViewModel model = _diffusionRepository.Get(id). ToDetails();
+            return View(model);
         }
 
         // GET: DiffusionController/Create
@@ -26,15 +40,18 @@ namespace ASP_Cinema.Controllers
         // POST: DiffusionController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(DiffusionCreateForm form)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (form == null) ModelState.AddModelError(nameof(form), "Aucun formulaire retourné.");
+                if (!ModelState.IsValid) throw new Exception();
+                int id_diffusion = _diffusionRepository.Insert(form.ToBLL());
+                return RedirectToAction(nameof(Details), new {id = id_diffusion});
             }
             catch
             {
-                return View();
+                return View(form);
             }
         }
 

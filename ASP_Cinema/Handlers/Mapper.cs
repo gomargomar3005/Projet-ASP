@@ -110,6 +110,19 @@ namespace ASP_Cinema.Handlers
             };
         }
 
+        public static DiffusionListViewModel ToListItem(this Diffusion entity)
+        {
+            if (entity is null) return null;
+            return new DiffusionListViewModel()
+            {
+                Id_Diffusion = entity.Id_Diffusion,
+                DiffusionDate = entity.DiffusionDate,
+                DiffusionTime = entity.DiffusionTime,
+                Id_CinemaRoom = entity.Id_CinemaRoom,
+                Id_Movie = entity.Id_Movie
+            };
+        }
+
         public static Diffusion ToBLL(this DiffusionCreateForm entity)
         {
             if (entity is null) return null;
